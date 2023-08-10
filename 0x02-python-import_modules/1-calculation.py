@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
-import calculator_1 as calc
+import calculator_1 as ped
 
 a = 10
 b = 5
 
 if __name__ == "__main__":
-    print("{} + {} = {}".format(a, b, calc.add(a, b)))
-    print("{} - {} = {}".format(a, b, calc.sub(a, b)))
-    print("{} * {} = {}".format(a, b, calc.mul(a, b)))
-    print("{} / {} = {}".format(a, b, calc.div(a, b)))
+    print("{} + {} = {}".format(a, b, ped.add(a, b)))
+    print("{} - {} = {}".format(a, b, ped.sub(a, b)))
+    print("{} * {} = {}".format(a, b, ped.mul(a, b)))
+    print("{} / {} = {}".format(a, b, ped.div(a, b)))
