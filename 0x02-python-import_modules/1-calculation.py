@@ -5,5 +5,5 @@ b = 5
 if __name__ == "__main__":
     print("{} + {} = {}".format(a, b, ped.add(a, b)))
     print("{} - {} = {}".format(a, b, ped.sub(a, b)))
-    print("{} m {} = {}".format(a, b, ped.mul(a, b)))
+    print("{} * {} = {}".format(a, b, ped.mul(a, b)))
     print("{} / {} = {}".format(a, b, ped.div(a, b)))
