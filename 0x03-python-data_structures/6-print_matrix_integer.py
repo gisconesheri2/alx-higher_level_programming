@@ -3,12 +3,15 @@
 
 def print_matrix_integer(matrix=[[]]):
     i = 0
+    inner_len = 0
 
     for l1 in matrix:
-        for num in l1:
-            if (i == 2):
-                print("{:d}".format(num))
-            else:
-                print("{:d}".format(num), end=" ")
+        inner_len = len(l1)
+        if (inner_len == 0):
+            print()
+            break
+        while (i < inner_len - 1):
+            print("{:d}".format(l1[i]), end=" ")
             i = i + 1
+        print("{:d}".format(l1[i]))
         i = 0
