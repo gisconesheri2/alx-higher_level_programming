@@ -64,6 +64,8 @@ int is_palindrome(listint_t **head)
 		same = 0;
 		break;
 	}
+	free(list_one);
+	free(list_two);
 	return (same);
 }
 
