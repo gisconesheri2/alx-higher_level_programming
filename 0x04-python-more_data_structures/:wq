@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+
+
+def roman_to_int(roman_string):
+
+    roman_num = dict(I=1, V=5, X=10, L=50, C=100, D=500, M=1000)
+    dec = 0
+    value = 0
+    last_letter = ""
+
+    if len(roman_string) == 1:
+        return (roman_num[roman_string])
+
+    for let in roman_string:
+        if last_letter == "I" and let == "X":
+            dec += 8
+            continue
+        if last_letter == "I" and let == "V":
+            dec += 3
+            continue
+        value = roman_num[let]
+        dec += value
+        last_letter = let
+
+    return (dec)
+
+print(roman_to_int("VII"))
+print(roman_to_int("XIV"))
+print(roman_to_int("XXI"))
+print(roman_to_int("XXIX"))
+print(roman_to_int("DCCVII"))
