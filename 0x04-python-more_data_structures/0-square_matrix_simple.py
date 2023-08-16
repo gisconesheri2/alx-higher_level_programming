@@ -2,9 +2,6 @@
 
 
 def square_matrix_simple(matrix=[]):
-    square_matrix = []
-    inner_row = []
-
     square_matrix = [[num * num for num in row]for row in matrix]
     """
     for row in matrix:
