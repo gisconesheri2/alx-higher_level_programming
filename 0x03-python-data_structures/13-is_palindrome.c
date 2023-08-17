@@ -34,7 +34,7 @@ int is_palindrome(listint_t **head)
 
 	list_len = i = same = 0;
 	if (current == NULL || linked_list_length == 1)
-		return (1)
+		return (1);
 	if ((linked_list_length % 2) == 0)
 		list_len = linked_list_length / 2;
 	else
