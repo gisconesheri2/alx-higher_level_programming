@@ -29,11 +29,12 @@ int list_length(listint_t **head)
 int is_palindrome(listint_t **head)
 {
 	listint_t *current = *head;
-	int *list_one, *list_two;
-	int list_len, i, same;
+	int *list_one, *list_two, list_len, i, same;
 	int linked_list_length = list_length(head);
 
 	list_len = i = same = 0;
+	if (current == NULL || linked_list_length == 1)
+		return (1)
 	if ((linked_list_length % 2) == 0)
 		list_len = linked_list_length / 2;
 	else
