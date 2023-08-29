@@ -16,11 +16,7 @@ class Square:
             position (tuple(int, int)): offset to print square
             size: dimensions of the square
         """
-        if type(size) != int:
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must >= 0")
-        self.__size = size
+        self.size = size
         self.position = position
 
     @property
@@ -50,7 +46,7 @@ class Square:
         """set the value of size to value
 
             Args:
-            value (int): value of size
+                value (int): value of size
         """
         if type(value) != int:
             raise TypeError("size must be an integer")
