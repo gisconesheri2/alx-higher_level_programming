@@ -6,7 +6,7 @@ class Square:
         """ initialize the data
         Args:
             size (int): dimensions of the square
-        
+
         Attributes:
             size: dimensions of the square
         """
