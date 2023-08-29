@@ -6,8 +6,6 @@
 
 class Square:
     """ defines a square. """
-
-
     def __init__(self, size=0):
         """ initialize the data
         Args:
@@ -30,7 +28,7 @@ class Square:
     @size.setter
     def size(self, value):
         """set the value of size to value
-            
+
             Args:
             value (int): value of size
         """
@@ -38,7 +36,7 @@ class Square:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must >= 0")
-        self.__size = value 
+        self.__size = value
 
     def area(self):
         """calculates the area of the square
