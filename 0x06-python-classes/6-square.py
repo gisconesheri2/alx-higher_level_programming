@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-"""Square module for everything
-"""
+"""Square module for everything"""
 
 
 class Square:
@@ -34,6 +33,8 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         if type(val[0]) != int or type(val[1]) != int:
             raise TypeError("position must be a tuple of 2 positive integers")
+        if val[0] < 0 or val[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = val
 
     @property
@@ -65,11 +66,12 @@ class Square:
         """print a square using '#'"""
         if self.__size == 0:
             print()
-        for ln in range(self.__position[1]):
-            print()
-        for i in range(self.__size):
-            for ln in range(self.__position[0]):
-                print(" ", end="")
-            for l in range(self.__size):
-                print("#", end="")
-            print()
+        else:
+            for line_space in range(self.__position[1]):
+                print()
+            for line in range(self.__size):
+                for ln in range(self.__position[0]):
+                    print(" ", end="")
+                for char in range(self.__size):
+                    print("#", end="")
+                print()
