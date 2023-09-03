@@ -23,7 +23,7 @@ if __name__ == "__main__":
         print("{} * {} = {}".format(a, b, calc.mul(a, b)))
 
     elif (argl[2] == "/"):
-        print("{} + {} = {}".format(a, b, calc.div(a, b)))
+        print("{} / {} = {}".format(a, b, calc.div(a, b)))
 
     else:
         print("Unknown operator. Available operators: +, -, * and /")
