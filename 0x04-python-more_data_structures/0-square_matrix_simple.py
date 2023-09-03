@@ -11,4 +11,4 @@ def square_matrix_simple(matrix=[]):
         inner_row = []
     """
 
-    return(square_matrix)
+    return (square_matrix)
