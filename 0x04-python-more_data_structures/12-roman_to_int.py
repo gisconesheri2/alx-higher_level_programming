@@ -7,8 +7,8 @@ def roman_to_int(roman_string):
     roman_num["I"] = 1
     dec = 0
     last_letter = ""
-    
-    if type(roman_string) != str or roman_string == None:
+
+    if type(roman_string) != str or roman_string is None:
         return 0
 
     if len(roman_string) == 1:
