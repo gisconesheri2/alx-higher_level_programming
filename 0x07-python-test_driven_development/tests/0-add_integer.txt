@@ -1,0 +1,54 @@
+The add_integer module
+----------------------
+
+using ''add_integer''
+
+import import add_integer function from the module
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+pass both arguments as positive integers:
+
+	>>> print(add_integer(1, 2))
+	3
+
+pass one value as a negative number:
+
+	>>> print(add_integer(100, -2))
+	98
+
+pass only the required parameter
+
+	>>> print(add_integer(2))
+	100
+
+pass a float as a parameter:
+
+	>>> print(add_integer(100.3, -2))
+	98
+
+pass the second argument as a string:
+
+	>>> print(add_integer(4, "school"))
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+pass only the required argument as a string:
+
+	>>> print(add_integer("tree"))
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+pass nothing to the function:
+
+	>>> print(add_integer())
+	Traceback (most recent call last):
+	...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+pass both numbers as negative floats
+
+	>>> print(add_integer(-9.453, -9.235))
+	-18
+

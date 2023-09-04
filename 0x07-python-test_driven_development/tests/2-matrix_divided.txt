@@ -1,0 +1,78 @@
+test file for 2-matrix_divided module
+contains the matrix_divided function
+
+import the function
+
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+set up the matrix
+
+	>>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+when everythng works normal
+
+	>>> print(matrix_divided(matrix, 3))
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+try dividing with zero
+
+	>>> print(matrix_divided(matrix, 0))
+	Traceback (most recent call last):
+	...
+	ZeroDivisionError: division by zero
+
+test a neagtive integer gives the correct output
+
+	>>> print(matrix_divided(matrix, -3))
+	[[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+divide by a string
+
+	>>> print(matrix_divided(matrix, "rest"))
+	Traceback (most recent call last):
+	...
+	TypeError: div must be a number
+
+matrix with unequal row sizes
+
+	>>> matrix = [[1, 2, 3], [4, 5]]
+	>>> print(matrix_divided(matrix, 3))
+	Traceback (most recent call last):
+	...
+	TypeError: Each row of the matrix must have the same size
+
+have a string mixed in?
+
+	>>> matrix = [[1, 2, 3], [4, 5, 'rest']]
+	>>> print(matrix_divided(matrix, 3))
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+have a 1-d matrix
+
+	>>> matrix = [[1,2,3]]
+	>>> print(matrix_divided(matrix, 3))
+	[[0.33, 0.67, 1.0]]
+
+have all floats
+
+	>>> matrix = [[1.2, 3.4],[4.5, 0.9]]
+	>>> matrix_divided(matrix, 4.5)
+	[[0.27, 0.76], [1.0, 0.2]]
+
+have an empty matrix
+
+	>>> matrix = []
+	>>> matrix_divided(matrix, 4.5)
+	Traceback (most recent call last):
+	...
+	IndexError: matrix cannot be empty
+
+have empty rows within the matrix
+
+	>>> matrix = [[]]
+	>>> matrix_divided(matrix, 4.5)
+	Traceback (most recent call last):
+	...
+	IndexError: matrix cannot be empty

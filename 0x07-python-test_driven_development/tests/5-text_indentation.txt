@@ -1,0 +1,56 @@
+module 5-text_indentation
+
+contains the function text_indentation
+prints 2 newline on every instance of a '.', ':'. '?'
+if a space follows one of the characters, it is disregarded
+
+import the function
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+begin with one of the three characters
+	>>> text_indentation(":a great tree, a sycamore.")
+	:
+	<BLANKLINE>
+	a great tree, a sycamore.
+	<BLANKLINE>
+
+begin with one of the characters plus a space(disregarded)
+
+	>>> text_indentation("? a great tree, a sycamore.")
+	?
+	<BLANKLINE>
+	a great tree, a sycamore.
+	<BLANKLINE>
+
+all three characters together
+
+	>>> text_indentation("? a great tree: a sycamore.")
+	?
+	<BLANKLINE>
+	a great tree:
+	<BLANKLINE>
+	a sycamore.
+	<BLANKLINE>
+
+preserve the spaces if no character precedes it
+	
+	>>> text_indentation(" a great tree: a sycamore.")
+	 a great tree:
+	<BLANKLINE>
+	a sycamore.
+	<BLANKLINE>
+
+anything but a string shouls raise TypeError
+
+	>>> text_indentation(1)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+if a string doesn't end with one of the characters
+
+	>>> text_indentation("?a great tree, a sycamore")
+	?
+	<BLANKLINE>
+	a great tree, a sycamore
