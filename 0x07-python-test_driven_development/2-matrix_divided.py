@@ -41,4 +41,4 @@ def matrix_divided(matrix, div):
     else:
         raise TypeError("div must be a number")
 
-    return(new_matrix)
+    return (new_matrix)
