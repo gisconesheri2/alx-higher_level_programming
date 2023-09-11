@@ -1,0 +1,40 @@
+doctest for the module 1-my_list
+contains a class that inherits from list
+and a function that prints a sorted copy of the class' object
+
+first import the class
+
+	>>> MyList = __import__('1-my_list').MyList
+
+create a new object of the class
+
+	>>> my_list = MyList()
+
+add a few items
+
+	>>> my_list.append(1)
+	>>> my_list.append(4)
+	>>> my_list.append(2)
+	>>> my_list.append(3)
+	>>> my_list.append(5)
+
+check if everything was added correctly
+
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+
+call the customised sort function
+
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4, 5]
+
+check to see that the original ny_list object is unchanged
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+
+MyList must be a sublass and thus an instance of list
+
+	>>> isinstance(my_list, list)
+	True
+	>>> issubclass(MyList, list)
+	True
