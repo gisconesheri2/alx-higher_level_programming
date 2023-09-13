@@ -27,3 +27,45 @@ must be int or else raise TypeError
 	Traceback (most recent call last):
 	...
 	TypeError: width must be an integer
+
+area raises an exception
+	>>> bg.area()
+	Traceback (most recent call last):
+	...
+	Exception: area() is not implemented
+
+integer_validation must take twwo parameters
+	>>> bg.integer_validator("age")
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+test with tuple
+	>>> bg.integer_validator("age", (2, ))
+	Traceback (most recent call last):
+	...
+	TypeError: age must be an integer
+
+test with list
+	>>> bg.integer_validator("age", [1, 2, 3])
+	Traceback (most recent call last):
+	...
+	TypeError: age must be an integer
+
+test with boolean
+	>>> bg.integer_validator("age", True)
+	Traceback (most recent call last):
+	...
+	TypeError: age must be an integer
+
+test with a null value
+	>>> bg.integer_validator("age", None)
+	Traceback (most recent call last):
+	...
+	TypeError: age must be an integer
+
+test with dict
+	>>> bg.integer_validator("age", {3:4})
+	Traceback (most recent call last):
+	...
+	TypeError: age must be an integer
