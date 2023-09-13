@@ -69,3 +69,10 @@ test with dict
 	Traceback (most recent call last):
 	...
 	TypeError: age must be an integer
+
+
+test with set 
+	>>> bg.integer_validator("age", {3, 4})
+	Traceback (most recent call last):
+	...
+	TypeError: age must be an integer
