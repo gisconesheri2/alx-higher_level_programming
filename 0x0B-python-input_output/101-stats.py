@@ -37,3 +37,10 @@ except KeyboardInterrupt:
     dict_keys.sort()
     for k in dict_keys:
         print(f"{k}: {status_codes_dict[k]}")
+
+if count > 0:
+    print(f"File size: {total_file_size}")
+    dict_keys = list(status_codes_dict.keys())
+    dict_keys.sort()
+    for k in dict_keys:
+        print(f"{k}: {status_codes_dict[k]}")
