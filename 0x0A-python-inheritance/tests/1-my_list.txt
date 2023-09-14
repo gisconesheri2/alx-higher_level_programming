@@ -38,3 +38,15 @@ MyList must be a sublass and thus an instance of list
 	True
 	>>> issubclass(MyList, list)
 	True
+
+sort an empty list
+	>>> ml = MyList()
+	>>> ml.print_sorted()
+	[]
+
+check for negative numbers
+	>>> ml.append(-2)
+	>>> ml.append(-6)
+	>>> ml.append(3)
+	>>> ml.print_sorted()
+	[-6, -2, 3]

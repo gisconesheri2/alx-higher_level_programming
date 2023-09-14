@@ -7,8 +7,8 @@ class MyInt(int):
 
     def __eq__(self, second_num):
         """invert the == operator"""
-        if self / second_num  == 1:
-            return False 
+        if self / second_num == 1:
+            return False
         return True
 
     def __ne__(self, second_num):
