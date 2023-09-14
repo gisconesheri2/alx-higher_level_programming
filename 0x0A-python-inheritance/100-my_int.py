@@ -7,6 +7,9 @@ class MyInt(int):
 
     def __eq__(self, second_num):
         """invert the == operator"""
+        zero = 0
+        if id(second_num) // id(zero) == 1:
+            return False
         if self / second_num == 1:
             return False
         return True
