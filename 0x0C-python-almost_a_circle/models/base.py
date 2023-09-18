@@ -131,7 +131,7 @@ class Base:
                     for i, value in enumerate(row):
                         instance_dict[instance_attrs_keys[i]] = int(value)
                     instances_list.append(cls.create(**instance_dict))
-                
+
         except FileNotFoundError:
             instances_list = []
 
@@ -139,9 +139,10 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        """use turtle module to draws a rectangles and sqaures on scree"""
         screen = turtle.getscreen()
         drawer = turtle.Turtle()
-        colours = ["purple", "red", "yellow", "orange", "blue", "brown", "green"]
+        colours = ["purple", "yellow", "orange", "blue", "brown", "green"]
         if list_rectangles is not None or len(list_rectangles) != 0:
             for rectangle in list_rectangles:
                 index = random.randint(0, len(colours) - 1)
