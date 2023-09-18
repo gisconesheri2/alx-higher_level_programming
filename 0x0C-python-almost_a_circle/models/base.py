@@ -4,6 +4,7 @@
 import json
 import csv
 import turtle
+import random
 
 
 class Base:
@@ -140,22 +141,33 @@ class Base:
     def draw(list_rectangles, list_squares):
         screen = turtle.getscreen()
         drawer = turtle.Turtle()
+        colours = ["purple", "red", "yellow", "orange", "blue", "brown", "green"]
         if list_rectangles is not None or len(list_rectangles) != 0:
             for rectangle in list_rectangles:
+                index = random.randint(0, len(colours) - 1)
                 drawer.penup()
-                drawer.goto(rectangle.x, rectangle.y)
+                pos = random.randint(0, 100)
+                drawer.goto(pos + rectangle.x, pos + rectangle.y)
+                drawer.pen(fillcolor=colours[index], pensize=index)
                 drawer.pendown()
+                drawer.begin_fill()
                 for times in range(0, 2):
                     drawer.forward(rectangle.width)
                     drawer.right(90)
                     drawer.forward(rectangle.height)
                     drawer.right(90)
+                drawer.end_fill()
 
         if list_squares is not None or len(list_squares) != 0:
             for square in list_squares:
+                index = random.randint(0, len(colours) - 1)
+                pos = random.randint(0, 100)
                 drawer.penup()
-                drawer.goto(square.x, square.y)
+                drawer.goto(pos + rectangle.x, pos + rectangle.y)
+                drawer.pen(fillcolor=colours[index], pensize=index)
                 drawer.pendown()
+                drawer.begin_fill()
                 for times in range(0, 4):
                     drawer.forward(square.size)
                     drawer.right(90)
+                drawer.end_fill()
