@@ -2,6 +2,8 @@
 """manages the id attribute in all classes of the package
 """
 import json
+import csv
+import turtle
 
 
 class Base:
@@ -39,6 +41,15 @@ class Base:
             return (json.loads(json_string))
 
     @classmethod
+    def create(cls, **dictionary):
+        """returns an instance with all attributes already set
+        as per values in dictionary
+        """
+        new_instance = cls(1, 1)
+        new_instance.update(**dictionary)
+        return new_instance
+
+    @classmethod
     def save_to_file(cls, list_objs):
         """writes the JSON string representation of list_objs
         to a file <Class nme>.json
@@ -60,15 +71,6 @@ class Base:
             fh.write(JSON_str)
 
     @classmethod
-    def create(cls, **dictionary):
-        """returns an instance with all attributes already set
-        as per values in dictionary
-        """
-        new_instance = cls(1, 1)
-        new_instance.update(**dictionary)
-        return new_instance
-
-    @classmethod
     def load_from_file(cls):
         """returns a list of instances of type cls"""
 
@@ -84,3 +86,76 @@ class Base:
             instances_list = []
 
         return (instances_list)
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """writes the CSV string representation of list_objs
+        to a file <Class name>.csv
+        Args:
+            list_objs - list of intances which inherit from Base Class
+            ie Rectangle and Square instances
+        """
+
+        objs_dict_list = []
+        csv_file_name = f"{cls.__name__}.csv"
+        if list_objs is None or len(list_objs) == 0:
+            return
+        else:
+            for obj in list_objs:
+                objs_dict_list.append(obj.to_dictionary())
+
+            with open(csv_file_name, "w", encoding='utf-8') as fh:
+                if f"{cls.__name__}" == "Rectangle":
+                    header = ["id", "width", "height", "x", "y"]
+                else:
+                    header = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(fh, fieldnames=header)
+                writer.writeheader()
+                writer.writerows(objs_dict_list)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """returns a list of instances of type cls"""
+
+        csv_file_name = f"{cls.__name__}.csv"
+        instances_list = []
+        instance_attrs_keys = []
+        try:
+            with open(csv_file_name, "r", encoding='utf-8') as fh:
+                csvreader = csv.reader(fh)
+                instance_attrs_keys = next(csvreader)
+
+                for row in csvreader:
+                    instance_dict = {}
+                    for i, value in enumerate(row):
+                        instance_dict[instance_attrs_keys[i]] = int(value)
+                    instances_list.append(cls.create(**instance_dict))
+                
+        except FileNotFoundError:
+            instances_list = []
+
+        return (instances_list)
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        screen = turtle.getscreen()
+        drawer = turtle.Turtle()
+        if list_rectangles is not None or len(list_rectangles) != 0:
+            for rectangle in list_rectangles:
+                drawer.penup()
+                drawer.goto(rectangle.x, rectangle.y)
+                drawer.pendown()
+                for times in range(0, 2):
+                    drawer.forward(rectangle.width)
+                    drawer.right(90)
+                    drawer.forward(rectangle.height)
+                    drawer.right(90)
+
+        if list_squares is not None or len(list_squares) != 0:
+            for square in list_squares:
+                drawer.penup()
+                drawer.goto(square.x, square.y)
+                drawer.pendown()
+                for times in range(0, 4):
+                    drawer.forward(square.size)
+                    drawer.right(90)
