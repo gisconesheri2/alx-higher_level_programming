@@ -1,4 +1,3 @@
--- show genres for a specif show
 select t.name 
 from tv_genres as t
 join tv_show_genres AS tsg
