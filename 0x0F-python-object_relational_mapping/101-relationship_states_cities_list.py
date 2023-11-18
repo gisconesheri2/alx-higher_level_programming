@@ -14,19 +14,19 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-#    city_query = session.query(#State.id, State.name, City.id, City.name#)\
-    city_query = session.query(State, City)\
+#    city_result = session.result(#State.id, State.name, City.id, City.name#)\
+    city_result = session.query(State, City)\
         .join(State.cities)\
         .order_by(State.id, City.id).all()
 
     prev_state_id = 0
-    for query in city_query:
-        current_state_id = query[0].id
+    for result in city_result:
+        current_state_id = result[0].id
         if current_state_id == prev_state_id:
-            print(f'\t{query[1].id}: {query[1].name}')
+            print(f'\t{result[1].id}: {result[1].name}')
         else:
-            print(f'{query[0].id}: {query[0].name}')
-            print(f'\t{query[1].id}: {query[1].name}')
+            print(f'{result[0].id}: {result[0].name}')
+            print(f'\t{result[1].id}: {result[1].name}')
 
         prev_state_id = current_state_id
 
