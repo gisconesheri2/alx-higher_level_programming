@@ -3,7 +3,10 @@
 
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
 from model_state import State, Base
+
+Base = declarative_base()
 
 
 class City(Base):
@@ -14,7 +17,7 @@ class City(Base):
     id = Column(Integer(), primary_key=True)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer(), ForeignKey('states.id'), nullable=False)
-#    state = relationship("State", backref="cities")
+    #state = relationship("State", backref="cities", cascade='all, delete')
 
     def __init__(self, name):
         """initialize the city name"""

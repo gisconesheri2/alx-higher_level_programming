@@ -3,12 +3,10 @@
 the nodel table"""
 
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-from relationship_city import City
+from relationship_city import City, Base
 
 
-Base = declarative_base()
 
 
 class State(Base):

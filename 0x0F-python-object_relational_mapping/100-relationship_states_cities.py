@@ -13,6 +13,8 @@ if __name__ == "__main__":
 
     Session = sessionmaker(bind=engine)
     session = Session()
+    Base.metadata.create_all(engine)
+
     calif_state = State('California')
     calif_city = City('San Francisco')
     calif_state.cities.append(calif_city)
