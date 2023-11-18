@@ -19,7 +19,7 @@ if __name__ == "__main__":
     session.add(louisiana)
     session.commit()
 
-    state = session.query(State).filter(State.name.ilike("Louisiana"))\
-        .all()
-    print(state[len(state) - 1].id)
+#    state = session.query(State).filter(State.name.ilike("Louisiana"))\
+#        .all()
+    print(louisiana.id)
     session.close()
