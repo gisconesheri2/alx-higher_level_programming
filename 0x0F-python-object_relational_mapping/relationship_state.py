@@ -7,8 +7,6 @@ from sqlalchemy.orm import relationship
 from relationship_city import City, Base
 
 
-
-
 class State(Base):
     """template for the states table"""
     __tablename__ = 'states'

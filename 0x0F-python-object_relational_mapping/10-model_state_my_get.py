@@ -20,4 +20,4 @@ if __name__ == "__main__":
             found = True
             print(s.id)
     if found is False:
-        print("Not Found")
+        print("Not found")

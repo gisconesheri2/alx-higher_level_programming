@@ -17,7 +17,7 @@ class City(Base):
     id = Column(Integer(), primary_key=True)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer(), ForeignKey('states.id'), nullable=False)
-    #state = relationship("State", backref="cities", cascade='all, delete')
+    # state = relationship("State", backref="cities", cascade='all, delete')
 
     def __init__(self, name):
         """initialize the city name"""
