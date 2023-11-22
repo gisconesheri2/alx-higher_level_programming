@@ -11,6 +11,7 @@ if __name__ == "__main__":
     cur = database.cursor()
     search_term = sys.argv[4]
     stop = False
+    results = ''
     forbidden_chars = [';', 'from', '*', '=', 'select', 'where']
 
     for char in forbidden_chars:
@@ -30,6 +31,6 @@ if __name__ == "__main__":
             results = f'{query_rows[0][0]}'
         for row in query_rows[1:]:
             results = results + f', {row[0]}'
-    print(results)
+        print(results)
     cur.close()
     database.close()
