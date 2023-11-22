@@ -15,4 +15,6 @@ if __name__ == "__main__":
     states = session.query(State).all()
 
     for state in states:
+        print(type(state))
+        print(type(state.__class__.__name__))
         print(f'{state.id}: {state.name}')

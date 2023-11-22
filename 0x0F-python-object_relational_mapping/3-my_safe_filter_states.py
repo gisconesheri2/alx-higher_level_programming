@@ -17,8 +17,8 @@ if __name__ == "__main__":
         if search_term == name[0]:
             cur.execute("""SELECT *
                         FROM states
-                        WHERE name LIKE '%{}%'
-                        ORDER BY id ASC""".format(search_term[0]))
+                        WHERE name LIKE BINARY '%{}%'
+                        ORDER BY id ASC""".format(search_term))
             query_rows = cur.fetchall()
 
             for row in query_rows:
