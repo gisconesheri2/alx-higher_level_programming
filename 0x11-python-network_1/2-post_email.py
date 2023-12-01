@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-connect to given url and print the value of the X-Request-Id 
+connect to given url and post to the email provided
 """
 import urllib.request
 import urllib.parse
@@ -8,7 +8,7 @@ import sys
 
 if __name__ == "__main__":
     data = sys.argv[2]
-    values = {'email' : data}
+    values = {'email': data}
     email = urllib.parse.urlencode(values)
     email = email.encode('utf-8')
     req = urllib.request.Request(sys.argv[1], email)

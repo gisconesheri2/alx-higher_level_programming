@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-connect to given url and print the value of the X-Request-Id 
+connect to given url and print the value of the X-Request-Id
 """
 import urllib.request
 import sys
