@@ -6,7 +6,7 @@ import urllib.request
 import urllib.parse
 import sys
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     email = sys.argv[2]
     data = urllib.parse.urlencode(email)
     data = data.encode('utf-8')
