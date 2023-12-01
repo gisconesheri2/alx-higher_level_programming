@@ -7,12 +7,12 @@ import urllib.parse
 import sys
 
 if __name__ == "__main__":
-    email = sys.argv[2]
-    values = {'email' : email}
-    data = urllib.parse.urlencode(values)
-    data = email.encode('ascii')
-    req = urllib.request.Request(sys.argv[1], data)
+    data = sys.argv[2]
+    values = {'email' : data}
+    email = urllib.parse.urlencode(values)
+    email = email.encode('utf-8')
+    req = urllib.request.Request(sys.argv[1], email)
 
     with urllib.request.urlopen(req) as resp:
         html = resp.read()
-        print(html)
+        print(html.decode('utf-8'))
