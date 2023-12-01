@@ -12,5 +12,5 @@ if __name__ == "__main__":
     headers['Accept'] = 'application/vnd.github+json'
     resp = requests.get(url, headers=headers)
     resp_json = resp.json()
-    for l in resp_json[:10]:
-        print(f"{l.get('sha')}: {l['commit']['author']['name']}")
+    for comm in resp_json[:10]:
+        print(f"{comm.get('sha')}: {comm['commit']['author']['name']}")
