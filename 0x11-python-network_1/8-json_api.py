@@ -19,7 +19,7 @@ if __name__ == "__main__":
         if len(json_r) == 0:
             print("No result")
         else:
-            print(f'[{json_r.get(id)}] {json_r.get(name)}')
+            print(f'[{json_r.get("id")}] {json_r.get("name")}')
     except requests.exceptions.JSONDecodeError as e:
         print("Not a valid JSON")
     
