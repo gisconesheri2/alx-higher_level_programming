@@ -8,7 +8,7 @@ request.get(process.argv[2], function (error, response, body) {
   if (!error && response.statusCode === 200) {
     for (const task of todoTasks) {
       if (task.completed === true) {
-        if (completedTasks.hasOwnProperty(task.userId)) {
+        if (task.userId in completedTasks) {
           completedTasks[task.userId] = completedTasks[task.userId] + 1;
         } else {
           completedTasks[task.userId] = 1;
